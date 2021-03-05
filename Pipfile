@@ -9,9 +9,11 @@ pytest = "*"
 
 [packages]
 requests = "*"
+django = "*"
+djangorestframework = "*"
 
 [requires]
-python_version = "3.9.1"
+python_version = "3.9.2"
 
 [pipenv]
 allow_prereleases = true
