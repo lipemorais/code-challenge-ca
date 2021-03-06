@@ -1,12 +1,11 @@
 TODO
-- test models => https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
-- test viewSet
 - setup logging
 - setup pytest-django
-- setup coverage
 - copy pytest.ini
+- create a makefile with setup instructions
 - use locust for load test 100/s posts => https://locust.io/
 - https://docs.djangoproject.com/en/3.1/ref/models/querysets/#select-for-update
+- write default validators
 
 DONE
 - django
@@ -17,3 +16,6 @@ DONE
 - parse entities
 - save entities
 - receive entities
+- test models => https://scotch.io/tutorials/build-a-rest-api-with-django-a-test-driven-approach-part-1
+- test viewSet
+- setup coverage => https://docs.djangoproject.com/en/3.1/topics/testing/advanced/#integration-with-coverage-py
