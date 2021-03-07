@@ -1,4 +1,4 @@
-# Consume Affairs code challenge - The eye
+# Code challenge - The eye
 
 ## Objective
 The objective of this code challenge can be found inside [the-eye.md](the-eye.md)
