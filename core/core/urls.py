@@ -20,9 +20,9 @@ from rest_framework import routers
 from the_eye import views
 
 router = routers.DefaultRouter()
-router.register(r'events', views.EventViewSet)
+router.register(r"events", views.EventViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+    path("", include(router.urls)),
+    path("admin/", admin.site.urls),
 ]

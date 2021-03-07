@@ -16,24 +16,24 @@ class EventTests(APITransactionTestCase):
         Ensure we can create a new Event object.
         """
         # Arrange
-        url = reverse('event-list')
+        url = reverse("event-list")
         body = {
             "session_id": "e2085be5-9137-4e4e-80b5-f1ffddc25423",
             "category": "page interaction",
             "name": "pageview",
-            "data": {
-                "host": "www.consumeraffairs.com",
-                "path": "/"
-            },
-            "timestamp": "2021-01-01 09:15:27.243860"
+            "data": {"host": "www.consumeraffairs.com", "path": "/"},
+            "timestamp": "2021-01-01 09:15:27.243860",
         }
         # Act
-        response = self.client.post(url, body, format='json')
+        response = self.client.post(url, body, format="json")
 
         # Assert
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Event.objects.count(), 1)
-        self.assertEqual(Event.objects.get().session_id, uuid.UUID('e2085be5-9137-4e4e-80b5-f1ffddc25423'))
+        self.assertEqual(
+            Event.objects.get().session_id,
+            uuid.UUID("e2085be5-9137-4e4e-80b5-f1ffddc25423"),
+        )
 
 
 class ModelTestCase(TransactionTestCase):
@@ -42,14 +42,13 @@ class ModelTestCase(TransactionTestCase):
     def test_model_can_create_an_event(self):
         """Test the event model can create a bucketlist."""
         # Arrange
-        self.event = Event(session_id=uuid.uuid4(),
-                           category="page interaction",
-                           name="pageview",
-                           data={
-                               "host": "www.consumeraffairs.com",
-                               "path": "/"
-                           },
-                           timestamp="2021-01-01 09:15:27.243860")
+        self.event = Event(
+            session_id=uuid.uuid4(),
+            category="page interaction",
+            name="pageview",
+            data={"host": "www.consumeraffairs.com", "path": "/"},
+            timestamp="2021-01-01 09:15:27.243860",
+        )
 
         old_count = Event.objects.count()
 

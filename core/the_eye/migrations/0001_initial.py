@@ -8,19 +8,26 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('session_id', models.UUIDField()),
-                ('category', models.CharField(max_length=40)),
-                ('name', models.CharField(max_length=40)),
-                ('data', models.JSONField()),
-                ('timestamp', models.DateTimeField()),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("session_id", models.UUIDField()),
+                ("category", models.CharField(max_length=40)),
+                ("name", models.CharField(max_length=40)),
+                ("data", models.JSONField()),
+                ("timestamp", models.DateTimeField()),
             ],
         ),
     ]

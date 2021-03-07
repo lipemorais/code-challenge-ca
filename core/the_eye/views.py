@@ -11,5 +11,6 @@ class EventViewSet(viewsets.ModelViewSet):
     """
     API endpoints to CRUD Event
     """
-    queryset = Event.objects.all().order_by('-timestamp')
+
+    queryset = Event.objects.all().order_by("-timestamp")
     serializer_class = EventSerializer
