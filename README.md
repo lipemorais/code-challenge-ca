@@ -4,8 +4,11 @@
 The objective of this code challenge can be found inside [the-eye.md](the-eye.md)
 
 ## Assumptions
-
-- 
+- May CRUD operations could be used to Event
+- Since there is not a lot of information about the Application and Session. I didn't represent them on my models
+- Assuming the communication between the Application and the eye will be over HTTPS and from a frontend application, if not a OAuth2 could be used for safety
+- To assure the applications request are not going to hanging receive and put it in a queue would be the most reliable choice, which would also help with race condition
+- `select_for_update` just work for big databases like Postgres, MySQL. So I'm assuming one of them would be used for this application instead of sqlite3
 
 ## Decisions
 - Keep the solution as simples as possible.

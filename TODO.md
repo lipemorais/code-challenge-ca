@@ -1,8 +1,6 @@
 TODO
-- add decisions and assumptions
 - use locust for load test 100/s posts => https://locust.io/
-- https://docs.djangoproject.com/en/3.1/ref/models/querysets/#select-for-update
-- write default validators
+- write default validators => https://www.django-rest-framework.org/api-guide/validators/#writing-custom-validators
 
   DONE
 - django
@@ -24,3 +22,5 @@ TODO
 - split tests files
 - Explain folder structure
 - sets .python-version to 3.9 and Pipfile
+- add decisions and assumptions
+- Use select_for_update to help avoid race condition => https://docs.djangoproject.com/en/3.1/ref/models/querysets/#select-for-update
