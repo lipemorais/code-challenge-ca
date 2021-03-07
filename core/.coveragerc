@@ -1,0 +1,4 @@
+[report]
+show_missing = True
+omit =
+    the_eye/apps.py

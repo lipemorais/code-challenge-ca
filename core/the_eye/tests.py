@@ -58,4 +58,4 @@ class ModelTestCase(TransactionTestCase):
         new_count = Event.objects.count()
 
         # Assert
-        self.assertEquals(old_count + 1, new_count)
+        self.assertEqual(old_count + 1, new_count)

@@ -8,6 +8,8 @@ black = "*"
 pytest = "*"
 ipython = "*"
 coverage = "*"
+pytest-django = "*"
+pytest-cov = "*"
 
 [packages]
 requests = "*"
