@@ -13,7 +13,7 @@ class WebsiteUser(HttpUser):
                 "category": "page interaction",
                 "name": "cta click",
                 "data": {
-                    "host": "www.consumeraffairs.com",
+                    "host": "www.ca.com",
                     "path": "/",
                     "element": "chat bubble",
                 },

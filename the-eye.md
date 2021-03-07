@@ -38,7 +38,7 @@ Example of events:
   "category": "page interaction",
   "name": "pageview",
   "data": {
-    "host": "www.consumeraffairs.com",
+    "host": "www.ca.com",
     "path": "/",
   },
   "timestamp": "2021-01-01 09:15:27.243860"
@@ -49,7 +49,7 @@ Example of events:
   "category": "page interaction",
   "name": "cta click",
   "data": {
-    "host": "www.consumeraffairs.com",
+    "host": "www.ca.com",
     "path": "/",
     "element": "chat bubble"
   },
@@ -61,7 +61,7 @@ Example of events:
   "category": "form interaction",
   "name": "submit",
   "data": {
-    "host": "www.consumeraffairs.com",
+    "host": "www.ca.com",
     "path": "/",
     "form": {
       "first_name": "John",

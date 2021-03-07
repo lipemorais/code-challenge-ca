@@ -63,7 +63,7 @@ the main folders are core(django project) and the_eye(django app).
 
 [Loadtest output](core/the_eye/tests/load_test_report.html) run against django test server:
 ```
-(consume-affairs) ➜  consume-affairs git:(master) ✗ locust -f core/the_eye/tests/loadtest.py
+(   code-challenge-venv) ➜     code-challenge-venv git:(master) ✗ locust -f core/the_eye/tests/loadtest.py
 [2021-03-06 23:50:34,990] MacBook-Pro.local/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 (accepting connections from all network interfaces)
 [2021-03-06 23:50:34,996] MacBook-Pro.local/INFO/locust.main: Starting Locust 1.4.3
 [2021-03-06 23:50:41,377] MacBook-Pro.local/INFO/locust.runners: Spawning 150 users at the rate 50 users/s (0 users already running)...
@@ -88,7 +88,7 @@ Response time percentiles (approximated)
 --------|------------------------------------------------------------|---------|------|------|------|------|------|------|------|------|------|------|------|
  None     Aggregated                                                          8      9     11     12     16     21     33     45     95    120    120   4698
 
-(consume-affairs) ➜  consume-affairs git:(master) ✗
+(   code-challenge-venv) ➜     code-challenge-venv git:(master) ✗
 
 ```
 ![img.png](core/the_eye/tests/load_test_report.png)

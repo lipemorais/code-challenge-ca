@@ -15,7 +15,7 @@ class ModelTestCase(TransactionTestCase):
             session_id=uuid.uuid4(),
             category="page interaction",
             name="pageview",
-            data={"host": "www.consumeraffairs.com", "path": "/"},
+            data={"host": "www.ca.com", "path": "/"},
             timestamp="2021-01-01 09:15:27.243860",
         )
 
