@@ -15,9 +15,39 @@ The objective of this code challenge can be found inside [the-eye.md](the-eye.md
 - Python 3.9.2 is been used for this code, the latest available at the moment.
 
 ## Folder structure
-EXPLAIN FOLDER STRUCTURE HERE
+the main folders are core(django project) and the_eye(django app).
 ```
-EXECUTE TREE A PUT THE OUTPUT HERE
+.
+├── Makefile
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── TODO.md
+├── core
+│   ├── core
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── db.sqlite3
+│   ├── manage.py
+│   └── the_eye
+│       ├── __init__.py
+│       ├── admin.py
+│       ├── apps.py
+│       ├── migrations
+│       │   ├── 0001_initial.py
+│       │   └── __init__.py
+│       ├── models.py
+│       ├── serializers.py
+│       ├── tests
+│       │   ├── __init__.py
+│       │   ├── models_tests.py
+│       │   └── views_tests.py
+│       └── views.py
+├── pytest.ini
+└── the-eye.md
 ```
 ## Requirements
 - Pipenv
