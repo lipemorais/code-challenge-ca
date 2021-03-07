@@ -4,7 +4,7 @@
 The objective of this code challenge can be found inside [the-eye.md](the-eye.md)
 
 ## Assumptions
-- May CRUD operations could be used to Event, so I will keep these possibilities to this model
+- Perhaps CRUD operations could be used to Event, so I will keep these possibilities to this model
 - Since there is not a lot of information about the Application and Session. I didn't represent them on my models
 - Assuming the communication between the Application and the eye will be over HTTPS and from a frontend application, if not a OAuth2 could be used for safety
 - To assure the applications request are not going to hanging I have used a load test on a not ideal scenario to see how the application behaves under load

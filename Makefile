@@ -14,8 +14,8 @@ r: run
 
 setup:
 	pipenv install --dev
+	pipenv run python core/manage.py migrate
+	pipenv run make tests
 	pipenv shell
-	tests
-	run
 
 s: setup
