@@ -4,12 +4,13 @@
 The objective of this code challenge can be found inside [the-eye.md](the-eye.md)
 
 ## Assumptions
-- May CRUD operations could be used to Event
+- May CRUD operations could be used to Event, so I will keep these possibilities to this model
 - Since there is not a lot of information about the Application and Session. I didn't represent them on my models
 - Assuming the communication between the Application and the eye will be over HTTPS and from a frontend application, if not a OAuth2 could be used for safety
-- To assure the applications request are not going to hanging receive and put it in a queue would be the most reliable choice, which would also help with race condition
+- To assure the applications request are not going to hanging I have used a load test on a not ideal scenario to see how the application behaves under load
+  - If the application were not able to do handle load on a proper manner I would think about use async processing with a queue as the most reliable choice, which would also help with race condition
 - `select_for_update` just work for big databases like Postgres, MySQL. So I'm assuming one of them would be used for this application instead of sqlite3
-- Assuming all the tests(including load test) are running in a CI/CD pipeline
+- Assuming all the tests(including load test) would run in a CI/CD pipeline
 - Assuming the load tests with Locust are going to run against a product like environment to have real numbers
 
 ## Decisions
@@ -18,6 +19,7 @@ The objective of this code challenge can be found inside [the-eye.md](the-eye.md
 - Explicit is better than implicit. 
 - I'm using [Black](https://black.readthedocs.io/en/stable/) for code formatting.
 - Python 3.9.2 is been used for this code, the latest available at the moment.
+- I chose to go with Django and Django rest framework since it provided out box most of the feature that I needed to deliver it on time
 
 ## Folder structure
 the main folders are core(django project) and the_eye(django app).
@@ -63,7 +65,7 @@ the main folders are core(django project) and the_eye(django app).
 
 [Loadtest output](core/the_eye/tests/load_test_report.html) run against django test server:
 ```
-(   code-challenge-venv) ➜     code-challenge-venv git:(master) ✗ locust -f core/the_eye/tests/loadtest.py
+(code-challenge-venv) ➜ code-challenge-venv git:(master) ✗ locust -f core/the_eye/tests/loadtest.py
 [2021-03-06 23:50:34,990] MacBook-Pro.local/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 (accepting connections from all network interfaces)
 [2021-03-06 23:50:34,996] MacBook-Pro.local/INFO/locust.main: Starting Locust 1.4.3
 [2021-03-06 23:50:41,377] MacBook-Pro.local/INFO/locust.runners: Spawning 150 users at the rate 50 users/s (0 users already running)...
@@ -88,7 +90,7 @@ Response time percentiles (approximated)
 --------|------------------------------------------------------------|---------|------|------|------|------|------|------|------|------|------|------|------|
  None     Aggregated                                                          8      9     11     12     16     21     33     45     95    120    120   4698
 
-(   code-challenge-venv) ➜     code-challenge-venv git:(master) ✗
+(code-challenge-venv) ➜ code-challenge-venv git:(master) ✗
 
 ```
 ![img.png](core/the_eye/tests/load_test_report.png)
