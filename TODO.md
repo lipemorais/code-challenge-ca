@@ -1,7 +1,7 @@
-TODO
+**TODO**
 - write default validators => https://www.django-rest-framework.org/api-guide/validators/#writing-custom-validators
 
-  DONE
+**DONE**
 - django
 - django rest framework
 - write the first basic test
