@@ -3,9 +3,8 @@ import uuid
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITransactionTestCase
-from django.test import TransactionTestCase
 
-from .models import Event
+from the_eye.models import Event
 
 
 class EventTests(APITransactionTestCase):
@@ -34,27 +33,3 @@ class EventTests(APITransactionTestCase):
             Event.objects.get().session_id,
             uuid.UUID("e2085be5-9137-4e4e-80b5-f1ffddc25423"),
         )
-
-
-class ModelTestCase(TransactionTestCase):
-    """This class defines the test suite for the Event model."""
-
-    def test_model_can_create_an_event(self):
-        """Test the event model can create a bucketlist."""
-        # Arrange
-        self.event = Event(
-            session_id=uuid.uuid4(),
-            category="page interaction",
-            name="pageview",
-            data={"host": "www.consumeraffairs.com", "path": "/"},
-            timestamp="2021-01-01 09:15:27.243860",
-        )
-
-        old_count = Event.objects.count()
-
-        # Act
-        self.event.save()
-        new_count = Event.objects.count()
-
-        # Assert
-        self.assertEqual(old_count + 1, new_count)

@@ -1,14 +1,12 @@
 TODO
-- apply black
 - Explain folder structure
 - sets .python-version to 3.9 and Pipfile
-- split tests files
 - add decisions and assumptions
 - use locust for load test 100/s posts => https://locust.io/
 - https://docs.djangoproject.com/en/3.1/ref/models/querysets/#select-for-update
 - write default validators
 
-  DONE
+DONE
 - django
 - django rest framework
 - write the first basic test
@@ -24,3 +22,5 @@ TODO
 - create pytest.ini
 - setup logging
 - create a makefile with setup instructions
+- apply black
+- split tests files
