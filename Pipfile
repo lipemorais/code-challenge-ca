@@ -10,6 +10,7 @@ ipython = "*"
 coverage = "*"
 pytest-django = "*"
 pytest-cov = "*"
+locust = "*"
 
 [packages]
 requests = "*"

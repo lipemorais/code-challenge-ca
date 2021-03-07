@@ -9,6 +9,8 @@ The objective of this code challenge can be found inside [the-eye.md](the-eye.md
 - Assuming the communication between the Application and the eye will be over HTTPS and from a frontend application, if not a OAuth2 could be used for safety
 - To assure the applications request are not going to hanging receive and put it in a queue would be the most reliable choice, which would also help with race condition
 - `select_for_update` just work for big databases like Postgres, MySQL. So I'm assuming one of them would be used for this application instead of sqlite3
+- Assuming all the tests(including load test) are running in a CI/CD pipeline
+- Assuming the load tests with Locust are going to run against a product like environment to have real numbers
 
 ## Decisions
 - Keep the solution as simples as possible.
@@ -55,9 +57,45 @@ the main folders are core(django project) and the_eye(django app).
 ## Requirements
 - Pipenv
 - Python3
+- make
+
+## Loadtest with [Locust](https://locust.io/)
+
+[Loadtest output](core/the_eye/tests/load_test_report.html) run against django test server:
+```
+(consume-affairs) ➜  consume-affairs git:(master) ✗ locust -f core/the_eye/tests/loadtest.py
+[2021-03-06 23:50:34,990] MacBook-Pro.local/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 (accepting connections from all network interfaces)
+[2021-03-06 23:50:34,996] MacBook-Pro.local/INFO/locust.main: Starting Locust 1.4.3
+[2021-03-06 23:50:41,377] MacBook-Pro.local/INFO/locust.runners: Spawning 150 users at the rate 50 users/s (0 users already running)...
+[2021-03-06 23:50:44,579] MacBook-Pro.local/INFO/locust.runners: All users spawned: WebsiteUser: 150 (150 total running)
+[2021-03-06 23:51:29,656] MacBook-Pro.local/INFO/locust.runners: Stopping 150 users
+[2021-03-06 23:51:29,662] MacBook-Pro.local/INFO/locust.runners: 150 Users have been stopped, 0 still running
+KeyboardInterrupt
+2021-03-07T02:52:18Z
+[2021-03-06 23:52:18,485] MacBook-Pro.local/INFO/locust.main: Running teardowns...
+[2021-03-06 23:52:18,485] MacBook-Pro.local/INFO/locust.main: Shutting down (exit code 0), bye.
+[2021-03-06 23:52:18,485] MacBook-Pro.local/INFO/locust.main: Cleaning up runner...
+ Name                                                          # reqs      # fails  |     Avg     Min     Max  Median  |   req/s failures/s
+--------------------------------------------------------------------------------------------------------------------------------------------
+ POST /events/                                                   4698     0(0.00%)  |       9       3     116       8  |   97.35    0.00
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Aggregated                                                      4698     0(0.00%)  |       9       3     116       8  |   97.35    0.00
+
+Response time percentiles (approximated)
+ Type     Name                                                              50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|------------------------------------------------------------|---------|------|------|------|------|------|------|------|------|------|------|------|
+ POST     /events/                                                            8      9     11     12     16     21     33     45     95    120    120   4698
+--------|------------------------------------------------------------|---------|------|------|------|------|------|------|------|------|------|------|------|
+ None     Aggregated                                                          8      9     11     12     16     21     33     45     95    120    120   4698
+
+(consume-affairs) ➜  consume-affairs git:(master) ✗
+
+```
+![img.png](core/the_eye/tests/load_test_report.png)
 
 
-COMMANDS TO BE CREATED
+
+
 ## Setup
 To setup the project just have the requirements and run:
 ```
